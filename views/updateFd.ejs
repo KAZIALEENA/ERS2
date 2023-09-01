@@ -1,0 +1,140 @@
+<title>ERS</title>
+<link rel = "icon" href = "https://cdn-icons-png.flaticon.com/128/11516/11516546.png" 
+type = "image/x-icon">
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .container {
+      height: 100vh;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+     
+    }
+    
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+      width: 400px;
+      height: 400px;
+      background-color: #ffffff;
+      padding: 10px 30px;
+    }
+    
+    .card_title {
+      text-align: center;
+      padding: 10px;
+    }
+    
+    .card_title h1 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    
+    .form input {
+      margin: 10px 0;
+      width: 100%;
+      background-color: #e2e2e2;
+      border: none;
+      outline: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+    }
+    
+    .form button {
+      background-color: #4796ff;
+      color: #ffffff;
+      font-size: 16px;
+      outline: none;
+      border-radius: 5px;
+      border: none;
+      padding: 8px 15px;
+      width: 100%;
+    }
+    
+    .card_terms {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+    
+    .card_terms input[type="checkbox"] {
+      background-color: #e2e2e2;
+    }
+    
+    .card_terms span {
+      margin: 5px;
+      font-size: 13px;
+    }
+    
+    .card a {
+      color: #4796ff;
+      text-decoration: none;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: black;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #04AA6D;
+      color: black;
+    }
+    
+    /* Create a right-aligned (split) link inside the navigation bar */
+    .topnav a.split {
+      float: right;
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    h1 {
+      color: white;
+    }
+    
+    </style>
+    <div class="topnav">
+      <h1><img align="middle" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/employee-performance-evaluation-5904760-4958446.png" width="90" height="80" >Employee Review System</h1>
+      <a class="active" href="/home"><i class="fa fa-fw fa-home"></i>Home</a>
+      <a id="addEmployeesLink" class="active" href="/emplist"><i class="fa fa-fw fa-home"></i>Employees</a>
+      <a class="active" href="add" ><i class='fas fa-user-alt'></i>Add Employee</a> 
+      <a href="/signout" class="split"><i style="font-size:20px" class="fa">&#xf08b;</i>Sign Out</a>
+    </div>
+    <div class="container">
+        <div class="card">
+          
+          <div class="form">
+            <div class="card-body">
+                <form action="/fdUpdate1/<%= users._id %>" method="post">
+                    <input type="email" name="email" placeholder="Email" id="email" value="<%= users.email %>"/>
+                    <input type="text" name="feedback" placeholder="Feedback" id="text" value="<%= users.feedback %>" />
+                    <button type="submit">Submit</button>
+                </form>
+                
+                
+                  
+          </div>
+        </div>
+      </div>

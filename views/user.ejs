@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERS</title>
+      <link rel = "icon" href = "https://cdn-icons-png.flaticon.com/128/11516/11516546.png" 
+        type = "image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .feedback-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feedback-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .feedback-form {
+            margin-bottom: 20px;
+        }
+
+        .feedback-form textarea {
+            width: 100%;
+            resize: vertical;
+        }
+
+        .feedback-form input[type="submit"] {
+            background-color: #04AA6D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-form input[type="submit"]:hover {
+            background-color: #046f4c;
+        }  
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 5px;
+          margin-left: 50px;
+          background-color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+        }
+        /* Clearfix (clear floats) */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-top: 30px;
+        }
+        #container {
+          display: flex;
+          width: 300px;
+          height: 50px;
+          margin: 0 auto;
+        }
+#star {
+  font-size: 50px;
+  flex: 1;
+  text-align: center;
+  line-height: 50px;
+  margin: 50px auto;
+  cursor: pointer;
+  border-radius: 100%;
+  transition: 1s;
+}
+
+.inactive{
+    color: lightgrey
+}
+
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	10% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	17% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	33% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	45% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+}
+
+.animated {
+animation: myAnim 2s ease 0s infinite normal forwards;  color: gold
+}
+
+.active {
+    color: gold;
+}
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+.topnav {
+  overflow: hidden;
+  background-color: black;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #04AA6D;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #04AA6D;
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+
+
+    </style>
+</head>
+<body>
+  <div class="topnav">
+    <h1><img align="middle" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/employee-performance-evaluation-5904760-4958446.png" width="90" height="80" >Employee Review System</h1>
+    
+    <a href="/signout" class="split"><i style="font-size:20px" class="fa">&#xf08b;</i>Sign Out</a>
+  </div>
+    <div class="container">
+      <h2>Welcome, <%= user.username %>!</h2>
+      <p>Email: <%= user.email %></p>
+      <p>Role: <%= user.role %></p>
+     
+      
+    </div>
+    <div class="row">
+        <div class="column">
+            <div style="border: 2px solid silver; padding: 80px; margin: 20px 0; border-radius: 10px;">
+              <form action="/feedback" id="usrform" method="post">
+                <br>
+                Feedback:<textarea rows="4" cols="50" name="feedback" form="usrform">Enter text here...</textarea><br><br>
+                <% if (user.assignedTo) { %>
+                  Assigned To: <input type="text" name="email" value="<%= user.assignedTo %>">
+                <% } else { %>
+                  <p>No assignment found.</p>
+                <% } %>
+                <br><br>
+                <input type="submit" class="button" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="column">
+     <p><% if (user.feedbacks && user.feedbacks.length > 0) { %>
+            <h2 >Feedbacks:</h2>
+            <ul style="border: 2px solid silver; padding: 80px; margin: 20px 0; border-radius: 10px;"><strong style="color: #DF3B1E">
+              <% user.feedbacks.forEach((feedback) => { %>
+                <li><%= feedback.feedback %></li>
+              <% }); %>
+            </ul>
+          <% } else { %>
+            <p>No feedbacks found.</p>
+          <% } %></p>
+          </div>       
+</body>
+</html>

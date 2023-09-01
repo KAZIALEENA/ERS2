@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ERS</title>
+  <link rel = "icon" href = "https://cdn-icons-png.flaticon.com/128/11516/11516546.png" 
+  type = "image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='https://kit.fontawesome.com/6f1c0cd9cd.js' crossorigin='anonymous'></script>
+<style>
+    html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("https://img.freepik.com/free-vector/remote-management-distant-work-isometric-icons-composition-with-bearded-man-sitting-with-laptop-calendar_1284-63057.jpg?w=740&t=st=1691466266~exp=1691466866~hmac=93324ce90d112cc50ee8824001e03a7d3b9985af4bb5f0c3b51626969d09147c");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 55%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #04AA6D;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #04AA6D;
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+</style>
+</head>
+<body>  
+<div class="topnav">
+  <h1><img align="middle" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/employee-performance-evaluation-5904760-4958446.png" width="90" height="80" >Employee Review System</h1>
+  <a class="active" href="/hello"><i class="fa fa-fw fa-home"> </i>Home</a>
+  <a id="addEmployeesLink" class="active" href="/emplist"><i class='fas fa-user-cog' style='font-size:18px'></i> Employees</a>
+  <a class="active" href="add" ><i class='fas fa-plus' style='font-size:18px'></i> Add Employee</a> 
+  <a href="/signout" class="split"><i style="font-size:20px" class="fa">&#xf08b;</i> Sign Out</a>
+</div>
+<div class="container">
+  <h2>Welcome, <%= user.username %>!</h2>
+  <p>Email: <%= user.email %></p>
+  <p>Role: <%= user.role %></p>
+ 
+  
+</div>
+
+<script>
+  // Get the link and form elements
+const addEmployeeLink = document.getElementById('addEmployeeLink');
+const employeeForm = document.getElementById('employeeForm');
+
+// Add click event listener to the link
+addEmployeeLink.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the link from navigating
+
+  // Toggle the visibility of the form
+  if (employeeForm.style.display === 'none') {
+    employeeForm.style.display = 'block';
+  } else {
+    employeeForm.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

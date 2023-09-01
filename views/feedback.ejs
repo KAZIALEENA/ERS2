@@ -1,0 +1,347 @@
+<title>ERS</title>
+<link rel = "icon" href = "https://cdn-icons-png.flaticon.com/128/11516/11516546.png" 
+type = "image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='https://kit.fontawesome.com/6f1c0cd9cd.js' crossorigin='anonymous'></script>
+<style>
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  background-color: var(--dark-cyan);
+  background-image: url(https://alcs-profile-card.netlify.app/images/bg-pattern-top.svg),
+    url(https://alcs-profile-card.netlify.app/images/bg-pattern-bottom.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  display: inline-block; 
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 45vh;
+  margin-top: 25px;
+  margin-left: 70px;
+}
+
+.card {
+  width: 326px;
+  border-radius: 16px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+  background-color: white;
+}
+
+.card-header {
+  width: 100%;
+  display: block;
+}
+
+.card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+ 
+  
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.card-body-img {
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-top: calc(-48px - 5px);
+  background-color: white;
+}
+
+.card-body-title {
+  margin: 0;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: var(--very-dark-desaturated-blue);
+}
+
+.card-body-title span {
+  color: var(--dark-gray);
+  font-weight: 400;
+}
+
+.card-body-text {
+  color: var(--dark-gray);
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.card-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.card-footer-social {
+  text-align: center;
+}
+
+.card-footer-social h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--very-dark-desaturated-blue);
+}
+
+.card-footer-social p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  color: var(--dark-gray);
+}
+
+
+button{
+  position: relative;
+  height: 65px;
+  width: 90px;
+  margin: 0 40px;
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+  background: #0d0d0d;
+  overflow: hidden;
+  transition: 0.6s;
+}
+.btn1{
+  color: #206592;
+  border-color: #206592;
+}
+.btn2{
+  color: #ce5c0c;
+  border-color: #ce5c0c;
+}
+/* Full-width input fields */
+select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+select:focus{
+  background-color: #ddd;
+  outline: none;
+}
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #04AA6D;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #04AA6D;
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+
+
+</style>
+<body>
+  <div class="topnav">
+    <h1><img align="middle" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/employee-performance-evaluation-5904760-4958446.png" width="90" height="80" >Employee Review System</h1>
+    <a class="active" href="/hello"><i class="fa fa-fw fa-home"> </i>Home</a>
+    <a id="addEmployeesLink" class="active" href="/emplist"><i class='fas fa-user-cog' style='font-size:18px'></i> Employees</a>
+    <a class="active" href="add" ><i class='fas fa-plus' style='font-size:18px'></i> Add Employee</a> 
+    <a href="/signout" class="split"><i style="font-size:20px" class="fa">&#xf08b;</i> Sign Out</a>
+  </div>
+  
+    
+    <% data.forEach(item => { %>
+    <main class="flex">
+      <article class="card">
+        <img src="https://alcs-profile-card.netlify.app/images/bg-pattern-card.svg" alt="Header Background" class="card-header">
+        <div class="card-body">
+          <h1 class="card-body-title"><%= item.email %><span></span></h1>
+          <p class="card-body-text"><%= item.feedback %></p>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-social">
+            <h3><a class="btn1" href="/update1/<%= item._id%>">Update</a></h3>
+          </div>
+          <div class="card-footer-social">
+            <h3><a class="btn2" href="/assign" style="width:auto;">Assign</a></h3>
+           
+          </div>
+          <div class="card-footer-social">
+            
+          </div>
+        </div>
+      </article>
+
+  
+    </main>
+    <% }) %>
+
+    <div id="id01" class="modal">
+        <span href="/user" onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+       
+       
+       
+      </div>
+      <script>
+        // Get the modal
+     
+        </script>
+      
+
+  </body>
+  
